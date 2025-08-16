@@ -23,7 +23,7 @@ public class ModListObserverConfig {
 	public static class Config {
 		public BooleanValue logJoiningModList;
 		public BooleanValue logServerMods;
-		public BooleanValue allowlistEnabled;
+		public BooleanValue allowlistEnabled; // removed usage
 		public BooleanValue broadcastModListOnJoin;
 		public IntValue modlistCommandPermissionLevel;
 		public IntValue broadcastPermissionLevel;

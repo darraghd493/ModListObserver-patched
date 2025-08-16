@@ -1,20 +1,19 @@
-[![](http://cf.way2muchnoise.eu/full_modlistobserver_downloads.svg)](https://www.curseforge.com/minecraft/mc-mods/modlistobserver) [![](http://cf.way2muchnoise.eu/versions/For%20MC_modlistobserver_all.svg)](https://www.curseforge.com/minecraft/mc-mods/modlistobserver/files)
+# ModListObserver-patched
 
-ModListObserver
-=============
+⚠️ Warning: Use at your own risk.
 
-Source code for the Forge mod "ModListObserver".
+A patched fork of [ModListObserver](https://github.com/RedstoneDubstep/ModListObserver) to falsely claim what mods are installed.
 
-This mod enables server admins to observe what mods clients joined the server with. Insight is granted via the added /modlist command, as well as an optional (enabled by default) message containing the current mod list that gets logged when a player joins the server.
+## Installation
 
-**Command usage:**
+Just drop the `admanticheat-patched.jar` file into your mods folder rather than the ModListObserver mod.
 
-    /modlist <target> current     gives you the mod list the target(s) last joined the server with
-    /modlist <target> all         gives you the list of all mods the target(s) joined the server with since the last server restart
+## Usage
 
-This is a Forge mod, a Fabric port may happen in the future (if there is demand).
+This mod requires you to:
 
-This mod is serverside only (meaning that this mod only needs to be installed on the server to work).
+1. Launch the game with the mod installed and the intended mods present.
+2. Close the game and perform whatever actions you want to perform with the mods.
+3. You're done!
 
-**As a final note:** 
-The mod list observable by ModListObserver is not authorative. A mod missing from the list does not necessarily mean the mod isn't there, and similarly a mod present in the list does not necessarily mean it is there. People using hacked clients may and will hack their mod list to make it look unsuspicious. Because of this, this mod will never add a feature to automatically blacklist players with certain mod lists, its sole purpose is to help admins with their decision of whether a player is using a disallowed mod.
+In order to reset the mod list, simply remove `modlistobserver-patch.json` in your game directory.

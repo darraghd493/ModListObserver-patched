@@ -6,6 +6,9 @@ import java.util.List;
 import java.util.Map;
 import java.util.Set;
 
+import me.darragh.mlopatched.ModListHandler;
+import net.minecraftforge.fml.event.lifecycle.FMLLoadCompleteEvent;
+import net.minecraftforge.fml.javafmlmod.FMLJavaModLoadingContext;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 
@@ -35,11 +38,17 @@ public class ModListObserver {
 	public ModListObserver() {
 		ModLoadingContext.get().registerExtensionPoint(IExtensionPoint.DisplayTest.class, () -> new IExtensionPoint.DisplayTest(() -> NetworkConstants.IGNORESERVERONLY, (a, b) -> true));
 		MinecraftForge.EVENT_BUS.addListener(this::registerCommands);
-		ModLoadingContext.get().registerConfig(ModConfig.Type.SERVER, ModListObserverConfig.SERVER_SPEC);
+		FMLJavaModLoadingContext.get().getModEventBus().addListener(this::onLoadComplete);
+		ModLoadingContext.get().registerConfig(ModConfig.Type.SERVER, ModListObserverConfig.SERVER_SPEC	);
 	}
 
 	public void registerCommands(RegisterCommandsEvent event) {
 		ModListCommand.register(event.getDispatcher());
+	}
+
+	public void onLoadComplete(FMLLoadCompleteEvent event) {
+		ModListHandler.loadClientMods();
+		LOGGER.info("ModListObserver loaded with client mods: {}", ModListHandler.getClientMods());
 	}
 
 	public static Set<String> getAllSessionMods(GameProfile player) {

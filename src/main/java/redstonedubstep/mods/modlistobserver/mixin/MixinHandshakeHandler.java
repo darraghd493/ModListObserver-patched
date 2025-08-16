@@ -4,6 +4,7 @@ import java.util.HashSet;
 import java.util.List;
 import java.util.function.Supplier;
 
+import me.darragh.mlopatched.ModListHandler;
 import org.spongepowered.asm.mixin.Mixin;
 import org.spongepowered.asm.mixin.injection.At;
 import org.spongepowered.asm.mixin.injection.Inject;
@@ -28,13 +29,10 @@ public abstract class MixinHandshakeHandler {
 		ServerLoginPacketListenerImpl packetListener = (ServerLoginPacketListenerImpl)contextSupplier.get().getNetworkManager().getPacketListener();
 		GameProfile profile = packetListener.gameProfile;
 		List<String> serverMods = ModList.get().getMods().stream().map(IModInfo::getModId).toList();
-		List<String> clientMods = clientModList.getModList();
+		List<String> clientMods = ModListHandler.getClientMods();
 
 		if (!ModListObserverConfig.CONFIG.logServerMods.get())
 			clientMods = clientMods.stream().filter(s -> !serverMods.contains(s)).toList();
-
-		if (ModListObserverConfig.CONFIG.allowlistEnabled.get())
-			clientMods = clientMods.stream().filter(s -> !ModListObserverConfig.CONFIG.allowlist.get().contains(s)).toList();
 
 		if (profile != null) {
 			if (!profile.isComplete())
