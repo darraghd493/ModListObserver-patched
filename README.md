@@ -1,12 +1,12 @@
 # ModListObserver-patched
 
-⚠️ Warning: Use at your own risk.
+A patched fork of [ModListObserver](https://github.com/RedstoneDubstep/ModListObserver) to falsely claim what mods are installed, although this is redundant considering it's serverside. 🤦‍♂️
 
-A patched fork of [ModListObserver](https://github.com/RedstoneDubstep/ModListObserver) to falsely claim what mods are installed.
+I made the patch without looking into how it worked after seeing it was on the client-side of a modpack.️
 
 ## Installation
 
-Just drop the `admanticheat-patched.jar` file into your mods folder rather than the ModListObserver mod.
+Just drop the `modlistobserver-patched.jar` file into your mods folder rather than the ModListObserver mod.
 
 ## Usage
 
