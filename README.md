@@ -1,3 +1,5 @@
+**View [modlistspoofer](https://github.com/darraghd493/modlistspoofer).**
+
 # ModListObserver-patched
 
 A patched fork of [ModListObserver](https://github.com/RedstoneDubstep/ModListObserver) to falsely claim what mods are installed, although this is redundant considering it's serverside. 🤦‍♂️
